@@ -1,0 +1,195 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* Custom Properties */
+
+:root {
+    --color-primary: #FD7403;
+    --color-seconday: #061037;
+    --color-accent: #202C59;
+    --color-nuetral: #FFFFFF;
+
+    --fs-normal: 18px;
+    --fs-paragraph: 20px;
+    --fs-heading: 36px;
+    --fs-title: 60px;
+    --fs-subtitle: 45px;
+
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+}
+
+/* Layout Utilities */
+
+.w-100 {
+    width: 100%;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Font Utilities */
+
+.fw-normal {
+    font-weight: var(--fw-normal);
+}
+
+.fw-bold {
+    font-weight: var(--fw-bold);
+}
+
+.fs-normal {
+    font-size: var(--fs-normal);
+}
+
+.fs-paragraph {
+    font-size: var(--fs-paragraph);
+}
+
+.fs-heading {
+    font-size: var(--fs-heading);
+}
+
+.fs-title {
+    font-size: var(--fs-title);
+}
+
+.fs-subtitle {
+    font-size: var(--fs-subtitle);
+}
+
+/* Flex Utility */
+
+.d-flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.f-space-evenly {
+    justify-content: space-evenly;
+}
+
+.f-space-between {
+    justify-content: space-between;
+}
+
+/* Common Utility */
+
+.bg-nuetral {
+    background-color: var(--color-nuetral);
+}
+
+.bg-secondary {
+    background-color: var(--color-seconday);
+}
+
+.text-plain {
+    color: var(--color-nuetral);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-seconday);
+}
+
+.text-accent {
+    color: var(--color-accent);
+}
+
+
+/* Custom Classes */
+
+a.nav-item,
+.header__logo {
+    text-decoration: none;
+    color: var(--color-seconday);
+}
+
+a.nav-item.active {
+    font-weight: var(--fw-bold);
+}
+
+.btn {
+    text-decoration: none;
+    background-color: var(--color-accent);
+    color: var(--color-nuetral);
+    font-size: var(--fs-normal);
+    padding: 0.5em 2em;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-nuetral);
+}
+
+.btn-seconday {
+    background-color: var(--color-seconday);
+    color: var(--color-nuetral);
+}
+
+.header__title {
+    color: var(--color-accent);
+    font-size: var(--fs-heading);
+    font-weight: var(--fw-bold);
+}
+
+.header {
+    padding: 25px 40px;
+}
+
+.hero__content {
+    width: 300px;
+}

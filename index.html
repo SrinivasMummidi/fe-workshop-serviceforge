@@ -5,36 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ServiceForge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="bg-nuetral">
-    <header class="header d-flex w-100 f-space-between">
-        <a href="#" class="header__logo">
-            <img src="./assets/logo-s.svg" alt="serviceforge-toolbox-logo"><span
-                class="header__title">ServiceForge</span>
+<body class="container bg-neutral fw-sm">
+    <header class="header d-flex f-space-between items-center">
+        <a href="#" class="header__link d-flex items-center f-space-between">
+            <img class="header__logo" src="./assets/logo.svg" alt="serviceforge-toolbox-logo" />
+            <span class="header__title text-secondary">ServiceForge</span>
         </a>
-        <nav class="fw-normal fs-normal">
+        <nav class="d-flex f-space-between fs-sm lg">
             <a href="/" class="nav-item active">Home</a>
             <a href="/" class="nav-item">Why</a>
             <a href="/" class="nav-item">Features</a>
             <a href="/" class="nav-item">How it works</a>
             <a href="/" class="nav-item">Pricing</a>
         </nav>
-        <div class="user-section">
+        <div>
             <a href="/" class="nav-item">Log in</a>
-            <a href="/" class="btn btn-primary">Sign Up</a>
+            <button href="/" class="btn btn-primary">Sign Up</button>
         </div>
     </header>
-    <section class="w-100 hero">
-        <div class="container d-flex f-space-between">
-            <div class="hero__content">
-                <h1 class="fs-title">Apps for the many.</h1>
-                <p class="fs-paragraph">More than a hundred of service providers have thier own app.</p>
-                <p class="fs-paragraph">It's time to get yours!</p>
-            </div>
-            <img src="assets/billboard.svg" alt="preview" class="main-preview">
+    <section class="hero d-flex f-space-between">
+        <div class="hero__content">
+            <h1 class="fs-xl">Apps for the many.</h1>
+            <p class="fs-sm">More than a hundred of service providers have thier own app.</p>
+            <p class="fs-sm">It's time to get yours!</p>
+            <button class="btn btn-primary">Get your free account</button>
         </div>
+        <img src="assets/billboard.svg" alt="preview" class="main-preview">
     </section>
 </body>
 

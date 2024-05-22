@@ -48,20 +48,25 @@ h6 {
     --color-accent: #202C59;
     --color-nuetral: #FFFFFF;
 
-    --fs-normal: 18px;
-    --fs-paragraph: 20px;
-    --fs-heading: 36px;
-    --fs-title: 60px;
-    --fs-subtitle: 45px;
+    --fs-xs: 16px;
+    --fs-sm: 18px;
+    --fs-md: 20px;
+    --fs-lg: 36px;
+    --fs-xl: 60px;
+    --fs-xxl: 45px;
 
     --fw-normal: 400;
     --fw-bold: 700;
 
 }
 
+body {
+    font-family: "Maven Pro", sans-serif;
+}
+
 /* Layout Utilities */
 
-.w-100 {
+.w-full {
     width: 100%;
 }
 
@@ -81,24 +86,24 @@ h6 {
     font-weight: var(--fw-bold);
 }
 
-.fs-normal {
-    font-size: var(--fs-normal);
+.fs-sm {
+    font-size: var(--fs-sm);
 }
 
-.fs-paragraph {
-    font-size: var(--fs-paragraph);
+.fs-md {
+    font-size: var(--fs-md);
 }
 
-.fs-heading {
-    font-size: var(--fs-heading);
+.fs-lg {
+    font-size: var(--fs-lg);
 }
 
-.fs-title {
-    font-size: var(--fs-title);
+.fs-xl {
+    font-size: var(--fs-xl);
 }
 
-.fs-subtitle {
-    font-size: var(--fs-subtitle);
+.fs-xxl {
+    font-size: var(--fs-xxl);
 }
 
 /* Flex Utility */
@@ -125,7 +130,7 @@ h6 {
 
 /* Common Utility */
 
-.bg-nuetral {
+.bg-neutral {
     background-color: var(--color-nuetral);
 }
 
@@ -133,7 +138,7 @@ h6 {
     background-color: var(--color-seconday);
 }
 
-.text-plain {
+.text-nuetral {
     color: var(--color-nuetral);
 }
 
@@ -152,13 +157,26 @@ h6 {
 
 /* Custom Classes */
 
-a.nav-item,
-.header__logo {
+.nav-item,
+.header__link {
     text-decoration: none;
-    color: var(--color-seconday);
 }
 
-a.nav-item.active {
+.header {
+    margin-top: 32px;
+}
+
+.header__logo {
+    margin-right: 0.8rem;
+}
+
+.nav-item {
+    padding: 0.5rem 2rem 0.5rem 0;
+    color: var(--color-seconday);
+    text-wrap: nowrap;
+}
+
+.nav-item.active {
     font-weight: var(--fw-bold);
 }
 
@@ -166,8 +184,15 @@ a.nav-item.active {
     text-decoration: none;
     background-color: var(--color-accent);
     color: var(--color-nuetral);
-    font-size: var(--fs-normal);
+    font-size: var(--fs-sm);
     padding: 0.5em 2em;
+    border: none;
+    font-weight: var(--fw-bold);
+    text-wrap: nowrap;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -182,14 +207,12 @@ a.nav-item.active {
 
 .header__title {
     color: var(--color-accent);
-    font-size: var(--fs-heading);
+    font-size: var(--fs-lg);
     font-weight: var(--fw-bold);
 }
 
-.header {
-    padding: 25px 40px;
-}
-
-.hero__content {
-    width: 300px;
+@media screen and (max-width:1200px) {
+    .lg {
+        display: none;
+    }
 }

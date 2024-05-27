@@ -8,18 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body class="bg-neutral fw-sm">
-    <header>
-        <div class="header bg-neutral container d-flex f-space-between items-center">
+    <header class="bg-neutral sticky top-0 py-2 z-1">
+        <div class="container d-flex f-space-between items-center">
             <a href="#" class="header__link d-flex items-center f-space-between">
                 <img class="header__logo" src="./assets/logo.svg" alt="serviceforge-toolbox-logo" />
                 <span class="header__title text-secondary">ServiceForge</span>
             </a>
-            <nav class="d-flex f-space-between fs-sm xl">
+            <nav class="d-flex f-space-between fs-sm xl-hide">
                 <a href="#" class="nav-item active">Home</a>
                 <a href="#" class="nav-item">Why</a>
                 <a href="#" class="nav-item">Features</a>
@@ -27,8 +26,8 @@
                 <a href="#" class="nav-item">Pricing</a>
             </nav>
             <div>
-                <a href="#" class="nav-item md">Log in</a>
-                <button href="#" class="btn btn-primary">Sign Up</button>
+                <a href="#" class="nav-item">Log in</a>
+                <button href="#" class="btn btn-primary md">Sign Up</button>
             </div>
         </div>
     </header>
@@ -37,17 +36,120 @@
             <div class="hero container d-flex flex-responsive f-space-between items-center bg-neutral">
                 <div class="hero__content">
                     <h1 class="fs-xxl">Apps for the many.</h1>
-                    <p class="fs-md ff-lato">More than a hundred of service providers have thier own app. <br /> It's
-                        time
-                        to
-                        get yours!
+                    <p class="fs-md">More than a hundred of service providers have thier own app. <br /> It's
+                        time to get yours!
                     </p>
                     <button class="btn btn-primary">Get your free account</button>
                 </div>
-                <img src="assets/billboard.svg" alt="preview" class="main-preview" width="579" height="618">
+                <img src="assets/billboard.svg" alt="preview" width="579" height="618">
             </div>
         </section>
-
+        <section class="bg-secondary text-neutral">
+            <div class="container">
+                <div class="explore__content text-center">
+                    <h1 class="fs-xl">Your own Business app</h1>
+                    <p class="fs-sm">Create your own app in less than three weeks and help your customers
+                        to reach you at any time.</p>
+                    <button class="btn--text text-neutral self-center">Explore Industries</button>
+                </div>
+                <div class="text-center">
+                    <div class="highlight">
+                        <img class="highlight_preview" src="assets/construction.svg" alt="construction-app">
+                        <div class="text-start py-3">
+                            <p class="fs-sm fw-bold text-uppercase">Construction</p>
+                            <p class="fs-sm">Ace Handyman</p>
+                        </div>
+                    </div>
+                    <div class="highlight"><img class="highlight_preview" src="assets/beauty.svg" alt="beauty-app">
+                        <div class="text-start py-3">
+                            <p class="fs-sm fw-bold text-uppercase">Beauty</p>
+                            <p class="fs-sm">Bruce Masefield</p>
+                        </div>
+                    </div>
+                    <div class="highlight"><img class="highlight_preview" src="assets/restaurants.svg"
+                            alt="restaurants-app">
+                        <div class="text-start py-3">
+                            <p class="fs-sm fw-bold text-uppercase">Restaurants</p>
+                            <p class="fs-sm">Baba</p>
+                        </div>
+                    </div>
+                    <div class="highlight"><img class="highlight_preview" src="assets/home-services.svg"
+                            alt="home-services-app">
+                        <div class="text-start py-3">
+                            <p class="fs-sm fw-bold text-uppercase">HomeServices</p>
+                            <p class="fs-sm">Alfred</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <p class="fs-lg my-2">
+                        The best tool you will ever need
+                    </p>
+                    <ul class="d-flex flex-wrap gap-3 p-0">
+                        <li class="service-item">
+                            <img src="./assets/desktop.png" alt="desktop" class="service-icon" />
+                            <h2 class="fs-md mt-1">Mobile and Desktop</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/calendar.png" alt="instant-booking" class="service-icon" />
+                            <h2 class="fs-md mt-1">Instant booking</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/qr.png" alt="custom-QR" class="service-icon" />
+                            <h2 class="fs-md mt-1">Custom QR Code</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/customer.png" alt="customer-support" class="service-icon" />
+                            <h2 class="fs-md mt-1">Customer Support</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/payment.png" alt="online-payments" class="service-icon" />
+                            <h2 class="fs-md mt-1">Online Payments</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/team.png" alt="team-management" class="service-icon" />
+                            <h2 class="fs-md mt-1">Team Management</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/location.png" alt="business-location" class="service-icon" />
+                            <h2 class="fs-md mt-1">Business Locations</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                        <li class="service-item">
+                            <img src="./assets/services.png" alt="custom-services" class="service-icon" />
+                            <h2 class="fs-md mt-1">Custom Services</h2>
+                            <p class="fs-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus aliquam
+                                accumsan.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="bg-neutral text-secondary">
+            <div class="container d-flex f-space-evenly items-center h-full flex-responsive">
+                <img src="assets/our-team.svg" alt="">
+                <div class="our-team">
+                    <div class="fs-lg fw-bold">It takes two to connect<br /> It takes live chat to convert.</div>
+                    <div class="fs-sm mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc, aliquet sed
+                        in et
+                        velit mauris donec sed mattis. Ultrices nulla sagittis gravida nunc enim nam. </div>
+                    <button class="btn--text text-primary">Our CTA</button>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 

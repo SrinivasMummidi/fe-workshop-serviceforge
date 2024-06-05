@@ -44,7 +44,7 @@ h6 {
 
 :root {
     --color-primary: #FD7403;
-    --color-seconday: #061037;
+    --color-secondary: #061037;
     --color-accent: #202C59;
     --color-nuetral: #FFFFFF;
 
@@ -73,6 +73,10 @@ body {
 
 .h-full {
     height: 100vh;
+}
+
+.mh-lg {
+    max-height: 900px;
 }
 
 .gap-3 {
@@ -128,6 +132,10 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.d-none {
+    display: none;
 }
 
 header,
@@ -208,7 +216,7 @@ main {
 }
 
 .bg-secondary {
-    background-color: var(--color-seconday);
+    background-color: var(--color-secondary);
 }
 
 .text-neutral {
@@ -220,7 +228,7 @@ main {
 }
 
 .text-secondary {
-    color: var(--color-seconday);
+    color: var(--color-secondary);
 }
 
 .text-accent {
@@ -253,8 +261,13 @@ main {
 
 .nav-item {
     padding: 0.5rem 2rem 0.5rem 0;
-    color: var(--color-seconday);
+    color: var(--color-secondary);
     text-wrap: nowrap;
+    font-size: var(--fs-sm)
+}
+
+.nav-item:hover {
+    font-weight: 500;
 }
 
 .nav-item.active {
@@ -281,8 +294,8 @@ main {
     color: var(--color-nuetral);
 }
 
-.btn-seconday {
-    background-color: var(--color-seconday);
+.btn-secondary {
+    background-color: var(--color-secondary);
     color: var(--color-nuetral);
 }
 
@@ -341,6 +354,52 @@ main {
 
 .service-icon {
     height: 3rem;
+}
+
+.menu-icon {
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: none;
+    background-color: var(--color-nuetral);
+    padding: 2px 0;
+}
+
+.menu-icon:hover {
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+}
+
+.mobile-menu {
+    height: 300px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+}
+
+.mobile-menu .nav-item {
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-menu .nav-item:hover {
+    background: var(--color-accent);
+    color: var(--color-nuetral);
+}
+
+.mobile-menu.open {
+    display: flex;
 }
 
 @media screen and (max-width:540px) {
@@ -413,9 +472,23 @@ main {
 
 }
 
-@media screen and (min-width:901px) and (max-width:1200px) {
+@media screen and (min-width:901px) and (max-width:1199px) {
 
     .lg-hide {
+        display: none;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .xl-hide {
+        display: none;
+    }
+
+    .xl-flex {
+        display: flex;
+    }
+
+    .mobile-menu.open {
         display: none;
     }
 }

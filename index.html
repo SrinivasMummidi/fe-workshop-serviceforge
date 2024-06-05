@@ -11,25 +11,41 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="bg-neutral fw-sm">
+<body class="bg-neutral">
     <header class="bg-neutral sticky top-0 py-2 z-1">
         <div class="container d-flex f-space-between items-center">
             <a href="#" class="header__link d-flex items-center f-space-between">
                 <img class="header__logo" src="./assets/logo.svg" alt="serviceforge-toolbox-logo" />
                 <span class="fs-lg fw-bold text-secondary">ServiceForge</span>
             </a>
-            <nav class="d-flex f-space-between fs-sm lg-hide md-hide sm-hide">
+            <nav class="xl-flex d-none f-space-between fs-sm">
                 <a href="#" class="nav-item active">Home</a>
                 <a href="#" class="nav-item">Why</a>
                 <a href="#" class="nav-item">Features</a>
                 <a href="#" class="nav-item">How it Works</a>
                 <a href="#" class="nav-item">Pricing</a>
             </nav>
-            <div>
-                <a href="#" class="nav-item sm-hide">Log in</a>
-                <button href="#" class="btn btn-primary">Sign Up</button>
+            <div class="d-none xl-flex">
+                <a href="#" class="nav-item">Log in</a>
+                <button class="btn btn-primary">Sign Up</button>
             </div>
+            <button class="menu-icon xl-hide" id="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
+        <nav class="container mobile-menu bg-neutral" id="mobile-menu">
+            <a href="#" class="nav-item active">Home</a>
+            <a href="#" class="nav-item">Why</a>
+            <a href="#" class="nav-item">Features</a>
+            <a href="#" class="nav-item">How it Works</a>
+            <a href="#" class="nav-item">Pricing</a>
+            <div class="mt-1">
+                <button class="btn btn-secondary">Log in</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+        </nav>
     </header>
     <main>
         <section>
@@ -140,7 +156,7 @@
             </div>
         </section>
         <section class="bg-neutral text-secondary">
-            <div class="container d-flex f-space-evenly items-center h-full md-flex-col lg-flex-col">
+            <div class="container d-flex f-space-evenly items-center h-full mh-lg md-flex-col lg-flex-col">
                 <img src="assets/our-team.svg" alt="" width="320" height="366">
                 <div class="our-team">
                     <p class="fs-lg fw-bold">It takes two to connect<br /> It takes live chat to convert.</p>
@@ -152,6 +168,7 @@
             </div>
         </section>
     </main>
+    <script src="./index.js"></script>
 </body>
 
 </html>

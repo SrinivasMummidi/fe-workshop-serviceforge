@@ -55,9 +55,6 @@ h6 {
     --fs-xl: 45px;
     --fs-xxl: 60px;
 
-    --fw-normal: 400;
-    --fw-bold: 700;
-
 }
 
 body {
@@ -90,14 +87,8 @@ body {
     top: 0;
 }
 
-.py-4 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-
-.py-3 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+.p-0 {
+    padding: 0;
 }
 
 .py-2 {
@@ -105,8 +96,14 @@ body {
     padding-bottom: 2rem;
 }
 
-.p-0 {
-    padding: 0;
+.py-3 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.py-4 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .z-1 {
@@ -141,11 +138,11 @@ main {
 /* Font Utilities */
 
 .fw-normal {
-    font-weight: var(--fw-normal);
+    font-weight: 400;
 }
 
 .fw-bold {
-    font-weight: var(--fw-bold);
+    font-weight: 700;
 }
 
 .fs-sm {
@@ -261,7 +258,7 @@ main {
 }
 
 .nav-item.active {
-    font-weight: var(--fw-bold);
+    font-weight: 700;
 }
 
 .btn,
@@ -270,7 +267,7 @@ main {
     font-size: var(--fs-sm);
     padding: 0.5em 2em;
     border: none;
-    font-weight: var(--fw-bold);
+    font-weight: 700;
     text-wrap: nowrap;
 }
 
@@ -299,11 +296,6 @@ main {
     margin: 0 5px;
 }
 
-.header__title {
-    color: var(--color-accent);
-    font-size: var(--fs-lg);
-    font-weight: var(--fw-bold);
-}
 
 .hero {
     height: 100%;
@@ -366,7 +358,7 @@ main {
         margin-right: 0.2rem;
     }
 
-    .md {
+    .sm-hide {
         display: none;
     }
 
@@ -381,9 +373,14 @@ main {
     .our-team {
         width: 80%;
     }
+
+    .md-flex-col {
+        flex-direction: column;
+    }
+
 }
 
-@media screen and (max-width:900px) {
+@media screen and (min-width:541px) and (max-width:900px) {
     :root {
         --fs-xs: 14px;
         --fs-sm: 16px;
@@ -398,7 +395,7 @@ main {
         margin-right: 0.4rem;
     }
 
-    .lg {
+    .md-hide {
         display: none;
     }
 
@@ -406,7 +403,7 @@ main {
         width: 50%;
     }
 
-    .flex-responsive {
+    .lg-flex-col {
         flex-direction: column;
     }
 
@@ -416,9 +413,9 @@ main {
 
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (min-width:901px) and (max-width:1200px) {
 
-    .xl-hide {
+    .lg-hide {
         display: none;
     }
 }

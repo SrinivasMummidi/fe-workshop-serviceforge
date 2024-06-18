@@ -219,6 +219,10 @@ main {
     background-color: var(--color-secondary);
 }
 
+.bg-accent {
+    background-color: var(--color-accent);
+}
+
 .text-neutral {
     color: var(--color-nuetral);
 }
@@ -332,16 +336,6 @@ main {
     gap: 1rem;
 }
 
-.highlight {
-    display: inline-block;
-    margin: 1rem;
-}
-
-.highlight_preview:hover {
-    transition: all 0.25s ease-in-out;
-    transform: scale(1.05);
-}
-
 .our-team {
     width: 40%;
 }
@@ -402,6 +396,22 @@ main {
     display: flex;
 }
 
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    display: inline-block;
+    margin: 1rem;
+    scroll-snap-align: center;
+}
+
+.carousel_preview:hover {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.05);
+}
+
+
 @media screen and (max-width:540px) {
     :root {
         --fs-xs: 12px;
@@ -435,6 +445,27 @@ main {
 
     .md-flex-col {
         flex-direction: column;
+    }
+
+    .carousel {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-x: auto;
+        text-wrap: nowrap;
+        scroll-snap-type: inline mandatory;
+    }
+
+    .carousel-item:first-child {
+        margin-left: 3rem;
+    }
+
+    .carousel-item:last-child {
+        margin-right: 3rem;
+    }
+
+    .carousel-item.active>.carousel_preview {
+        transition: all 0.5s ease-in-out;
+        transform: scale(1.05);
     }
 
 }

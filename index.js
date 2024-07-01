@@ -179,7 +179,7 @@ function validatePassword(inputEvent) {
   const isInvalid = !passwordRegex.test(inputData);
   const parentField = inputEvent.target.closest(".input-group");
   parentField.classList.toggle("invalid-field", isInvalid);
-  const action = inputEvent.target.id === "login-email" ? "login" : "signup";
+  const action = inputEvent.target.id === "login-password" ? "login" : "signup";
   if (isInvalid) {
     updateErrorContent(
       parentField,

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="bg-neutral">
+<body class="bg-neutral open-modal">
     <header class="bg-neutral sticky top-0 py-2 z-1">
         <div class="container d-flex f-space-between items-center">
             <a href="#" class="header__link d-flex items-center f-space-between">
@@ -48,7 +48,7 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="bg-neutral">
             <div class="hero container d-flex f-space-between items-center bg-neutral md-flex-col lg-flex-col">
                 <div class="hero__content">
                     <h1 class="fs-xxl text-secondary">Apps for the many.</h1>
@@ -167,6 +167,24 @@
                 </div>
             </div>
         </section>
+        <aside class="bg-accent-light z-2 x-0 y-0 w-full h-full fixed d-none" id="modal">
+            <div class="w-32 h-32 bg-neutral absolute transform-center container py-2">
+                <h2 class="text-secondary fs-lg text-center">Login</h2>
+                <form>
+                    <div class="input-group fs-md">
+                        <label for="email" class="input-label">Email</label>
+                        <input class="input-field" type="email" name="email" id="email" />
+                    </div>
+                    <div class="input-group fs-md">
+                        <label for="password" class="input-label">Password</label>
+                        <input class="input-field" type="password" name="password" id="password" />
+                    </div>
+                    <p class="fs-sm text-center">New User? Click here to <a class="btn--text text-primary"
+                            href="#signup">Signup</a></p>
+                    <button type="submit" class="btn btn-secondary mx-auto d-block mt-1">Login</button>
+                </form>
+            </div>
+        </aside>
     </main>
     <script src="./index.js"></script>
 </body>

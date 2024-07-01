@@ -92,4 +92,4 @@ function resizeHandler(carouselTimer) {
   }
 }
 
-window.addEventListener("resize", resizeHandler(carouselTimer));
+window.addEventListener("resize", () => resizeHandler(carouselTimer));

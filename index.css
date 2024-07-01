@@ -45,7 +45,9 @@ h6 {
 :root {
     --color-primary: #FD7403;
     --color-secondary: #061037;
+    --color-secondary-light: #061037df;
     --color-accent: #202C59;
+    --color-accent-75: #202c59cc;
     --color-nuetral: #FFFFFF;
 
     --fs-xs: 16px;
@@ -63,16 +65,46 @@ body {
 
 /* Layout Utilities */
 
-.w-full {
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.w-100 {
     width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.h-50 {
+    height: 50%;
 }
 
 .w-50 {
     width: 50%;
 }
 
+.w-20 {
+    width: 20rem;
+}
+
+.w-32 {
+    width: 32rem;
+}
+
+.w-full {
+    width: 100vw;
+}
+
 .h-full {
     height: 100vh;
+}
+
+.h-32 {
+    height: 32rem;
 }
 
 .mh-lg {
@@ -87,8 +119,26 @@ body {
     position: sticky;
 }
 
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .top-0 {
     top: 0;
+}
+
+.x-0 {
+    left: 0;
+    right: 0;
+}
+
+.y-0 {
+    top: 0;
+    bottom: 0;
 }
 
 .p-0 {
@@ -114,6 +164,10 @@ body {
     z-index: 1;
 }
 
+.z-2 {
+    z-index: 2;
+}
+
 .mt-1 {
     margin-top: 1rem;
 }
@@ -128,20 +182,30 @@ body {
     margin-bottom: 4rem;
 }
 
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 .d-none {
     display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header,
 main {
     min-width: 320px;
 }
+
+.transform-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 /* Font Utilities */
 
@@ -223,6 +287,10 @@ main {
     background-color: var(--color-accent);
 }
 
+.bg-accent-light {
+    background-color: var(--color-accent-75);
+}
+
 .text-neutral {
     color: var(--color-nuetral);
 }
@@ -249,6 +317,22 @@ main {
 
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.rounded-2 {
+    border-radius: 2%;
 }
 
 
@@ -301,6 +385,10 @@ main {
 .btn-secondary {
     background-color: var(--color-secondary);
     color: var(--color-nuetral);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-light);
 }
 
 .btn--text {
@@ -411,6 +499,34 @@ main {
     transform: scale(1.05);
 }
 
+.open-modal #modal {
+    display: block;
+}
+
+
+/* Form Fields */
+
+.input-group {
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.input-group .input-label {
+    display: block;
+    font-weight: 500;
+}
+
+.input-group .input-field {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--color-accent);
+}
+
+.input-group .input-field:focus,
+.input-group .input-field:active {
+    outline: 2px solid var(--color-secondary);
+}
+
 
 @media screen and (max-width:540px) {
     :root {
@@ -463,7 +579,7 @@ main {
         margin-right: 3rem;
     }
 
-    .carousel-item.active>.carousel_preview {
+    .carousel-item.active .carousel_preview {
         transition: all 0.5s ease-in-out;
         transform: scale(1.05);
     }

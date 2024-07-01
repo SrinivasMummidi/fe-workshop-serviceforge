@@ -47,8 +47,10 @@ h6 {
     --color-secondary: #061037;
     --color-secondary-light: #061037df;
     --color-accent: #202C59;
-    --color-accent-75: #202c59cc;
+    --color-accent-light: #202c59cc;
     --color-nuetral: #FFFFFF;
+    --color-red: #c5283d;
+    --color-red-light: #F57C7C;
 
     --fs-xs: 16px;
     --fs-sm: 18px;
@@ -111,6 +113,14 @@ body {
     max-height: 900px;
 }
 
+.max-w-30 {
+    max-width: 450px;
+}
+
+.min-h-30 {
+    min-height: 450px;
+}
+
 .gap-3 {
     gap: 3rem;
 }
@@ -129,6 +139,14 @@ body {
 
 .top-0 {
     top: 0;
+}
+
+.top-2 {
+    top: 20px;
+}
+
+.right-2 {
+    right: 20px;
 }
 
 .x-0 {
@@ -170,6 +188,10 @@ body {
 
 .mt-1 {
     margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
 }
 
 .my-2 {
@@ -288,7 +310,11 @@ main {
 }
 
 .bg-accent-light {
-    background-color: var(--color-accent-75);
+    background-color: var(--color-accent-light);
+}
+
+.bg-none {
+    background: none;
 }
 
 .text-neutral {
@@ -401,6 +427,18 @@ main {
     margin: 0 5px;
 }
 
+.close-btn {
+    background: none;
+    padding: 0;
+    color: var(--color-nuetral);
+    border: none;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+}
+
 
 .hero {
     height: 100%;
@@ -507,24 +545,68 @@ main {
 /* Form Fields */
 
 .input-group {
-    margin: .5rem;
-    padding: .5rem;
+    margin: 8px;
+    padding: 12px;
+    position: relative;
 }
 
-.input-group .input-label {
+.input-label {
     display: block;
     font-weight: 500;
+    font-size: var(--fs-md);
 }
 
-.input-group .input-field {
+.input-field {
     width: 100%;
     padding: 5px 10px;
     border: 1px solid var(--color-accent);
 }
 
-.input-group .input-field:focus,
-.input-group .input-field:active {
+.input-field--primary {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--color-nuetral);
+}
+
+.input-field:focus,
+.input-field:active {
     outline: 2px solid var(--color-secondary);
+}
+
+.input-field--primary:focus,
+.input-field--primary:active {
+    outline: 2px solid var(--color-primary);
+}
+
+.input-group.required .input-label::after {
+    content: '*';
+    color: var(--color-primary);
+}
+
+.input-group.invalid-field .error-text {
+    display: block;
+    position: absolute;
+    padding: 4px 0;
+    color: var(--color-red);
+    font-weight: 500;
+}
+
+.input-group.invalid-field .input-field {
+    border: 1px solid var(--color-red);
+}
+
+.input-group.invalid-field .input-field--primary {
+    border: 1px solid var(--color-red);
+}
+
+.input-group.invalid-field .input-field:focus,
+.input-group.invalid-field .input-field:active {
+    outline: 2px solid var(--color-red);
+}
+
+.input-group.invalid-field .input-field--primary:focus,
+.input-group.invalid-field .input-field--primary:active {
+    outline: 2px solid var(--color-red);
 }
 
 

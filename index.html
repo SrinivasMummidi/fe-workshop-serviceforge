@@ -179,7 +179,7 @@
                     </svg>
                 </button>
                 <h2 class="text-secondary fs-lg text-center">Login</h2>
-                <form>
+                <form id="login-form">
                     <div class="input-group required">
                         <label for="login-email" class="input-label">Email</label>
                         <input class="input-field" type="email" name="email" id="login-email" aria-required="true" />
@@ -210,7 +210,7 @@
                     </svg>
                 </button>
                 <h2 class="text-neutral fs-lg text-center">Signup</h2>
-                <form>
+                <form id="signup-form">
                     <div class="input-group required">
                         <label for="signup-email" class="input-label">Email</label>
                         <input class="input-field--primary" type="email" name="email" id="signup-email" />
@@ -235,7 +235,7 @@
                         <label for="cnf-password" class="input-label">Confirm Password</label>
                         <input class="input-field--primary" type="password" name="confirm-password" id="cnf-password"
                             autocomplete="off" />
-                        <span id="cnf-password-err" aria-live="polite"></span>
+                        <span id="cnf-password-err" class="error-text d-none" aria-live="polite"></span>
                     </div>
                     <p class="fs-sm text-center mt-2">Existing User? <a class="btn--text text-primary"
                             href="#login">Click here to Login</a></p>

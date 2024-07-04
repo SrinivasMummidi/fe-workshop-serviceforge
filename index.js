@@ -125,9 +125,9 @@ function router() {
   const inputGroups = document.querySelectorAll(".input-group");
   inputGroups.forEach((group) => {
     group.classList.remove("invalid-field");
-  });
-  const inputfields = document.querySelectorAll(".input-field");
-  inputfields.forEach((field) => {
+    const field =
+      group.querySelector(".input-field") ||
+      group.querySelector(".input-field--primary");
     field.value = "";
   });
 
@@ -159,56 +159,110 @@ function updateErrorContent(parent, id, content) {
 
 function validateEmail(inputEvent) {
   const inputData = inputEvent.target.value;
+  if (!inputData.trim()) {
+    return false;
+  }
   const isInvalid = !emailRegex.test(inputData);
   const parentField = inputEvent.target.closest(".input-group");
   parentField.classList.toggle("invalid-field", isInvalid);
-  const action = inputEvent.target.id === "login-email" ? "login" : "signup";
-  if (isInvalid) {
-    const errorContent =
-      inputData.trim().length > 0
-        ? "Invalid email! Please enter valid email address."
-        : `Your email is required to ${action}!`;
-    updateErrorContent(parentField, inputEvent.target.id, errorContent);
-  } else {
-    updateErrorContent(parentField, inputEvent.target.id, "");
-  }
+  const errorContent = isInvalid
+    ? "Invalid email! Please enter valid email address."
+    : "";
+
+  updateErrorContent(parentField, inputEvent.target.id, errorContent);
+  return isInvalid;
 }
 
 function validatePassword(inputEvent) {
   const inputData = inputEvent.target.value;
+  if (!inputData.trim()) {
+    return false;
+  }
   const isInvalid = !passwordRegex.test(inputData);
   const parentField = inputEvent.target.closest(".input-group");
   parentField.classList.toggle("invalid-field", isInvalid);
-  const action = inputEvent.target.id === "login-password" ? "login" : "signup";
+  const errorContent = isInvalid ? "Insecure Password!" : "";
   if (isInvalid) {
-    updateErrorContent(
-      parentField,
-      inputEvent.target.id,
-      inputData.trim().length > 0
-        ? "Insecure Password!"
-        : `Password is required to ${action}!`
-    );
-  } else {
-    updateErrorContent(parentField, inputEvent.target.id, "");
+    updateErrorContent(parentField, inputEvent.target.id, errorContent);
   }
+  return isInvalid;
 }
 
-function comparePassword() {
-  const isNotMatching =
-    signupPasswordField.value !== confirmPasswordField.value;
-  const parentField = confirmPasswordField.closest(".input-group");
+function comparePassword(password, confirmPassword) {
+  const isNotMatching = password.value !== confirmPassword.value;
+  const parentField = confirmPassword.closest(".input-group");
   parentField.classList.toggle("invalid-field", isNotMatching);
-  if (isNotMatching) {
-    updateErrorContent(
-      parentField,
-      confirmPasswordField.id,
-      `"Confirm password should be same as password."`
-    );
-  }
+  const errorContent = isNotMatching
+    ? "Confirm password should be same as password."
+    : "";
+  updateErrorContent(parentField, confirmPassword.id, errorContent);
+  return isNotMatching;
 }
 
 loginEmailField.addEventListener("blur", validateEmail);
 signupEmailField.addEventListener("blur", validateEmail);
 loginPasswordField.addEventListener("blur", validatePassword);
 signupPasswordField.addEventListener("blur", validatePassword);
-confirmPasswordField.addEventListener("blur", comparePassword);
+
+const loginForm = document.getElementById("login-form");
+const signupForm = document.getElementById("signup-form");
+
+loginForm.addEventListener("submit", function (submitEvent) {
+  submitEvent.preventDefault();
+  const loginEmail = loginForm.querySelector("#login-email");
+  const loginPassword = loginForm.querySelector("#login-password");
+  const email = loginEmail.value.trim();
+  const password = loginPassword.value.trim();
+  if (email.length === 0) {
+    updateErrorContent(
+      loginForm,
+      loginEmail.id,
+      "Your email is required to login!"
+    );
+    loginEmail.parentElement.classList.add("invalid-field");
+  }
+  if (password.length === 0) {
+    updateErrorContent(
+      loginForm,
+      loginPassword.id,
+      "Password is required to login!"
+    );
+    loginPassword.parentElement.classList.add("invalid-field");
+  }
+  if (!email || !password) return;
+  const isInvalidEmail = validateEmail({ target: loginEmail });
+  const isInvalidPassWord = validatePassword({ target: loginPassword });
+  if (isInvalidEmail || isInvalidPassWord) return;
+  closePopup();
+});
+
+signupForm.addEventListener("submit", function (submitEvent) {
+  submitEvent.preventDefault();
+  const singupEmail = signupForm.querySelector("#signup-email");
+  const singupPassword = signupForm.querySelector("#signup-password");
+  const confirmPassword = signupForm.querySelector("#cnf-password");
+  const email = singupEmail.value.trim();
+  const password = singupPassword.value.trim();
+  if (email.length === 0) {
+    updateErrorContent(
+      signupForm,
+      singupEmail.id,
+      "Your email is required to signup!"
+    );
+    singupEmail.parentElement.classList.add("invalid-field");
+  }
+  if (password.length === 0) {
+    updateErrorContent(
+      signupForm,
+      singupPassword.id,
+      "Password is required to signup!"
+    );
+    singupPassword.parentElement.classList.add("invalid-field");
+  }
+  if (!email || !password || comparePassword(singupPassword, confirmPassword))
+    return;
+  const isInvalidEmail = validateEmail({ target: singupEmail });
+  const isInvalidPassWord = validatePassword({ target: singupPassword });
+  if (isInvalidEmail || isInvalidPassWord) return;
+  closePopup();
+});

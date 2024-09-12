@@ -45,8 +45,12 @@ h6 {
 :root {
     --color-primary: #FD7403;
     --color-secondary: #061037;
+    --color-secondary-light: #061037df;
     --color-accent: #202C59;
+    --color-accent-light: #202c59cc;
     --color-nuetral: #FFFFFF;
+    --color-red: #c5283d;
+    --color-red-light: #F57C7C;
 
     --fs-xs: 16px;
     --fs-sm: 18px;
@@ -63,20 +67,58 @@ body {
 
 /* Layout Utilities */
 
-.w-full {
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.w-100 {
     width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.h-50 {
+    height: 50%;
 }
 
 .w-50 {
     width: 50%;
 }
 
+.w-20 {
+    width: 20rem;
+}
+
+.w-32 {
+    width: 32rem;
+}
+
+.w-full {
+    width: 100vw;
+}
+
 .h-full {
     height: 100vh;
 }
 
+.h-32 {
+    height: 32rem;
+}
+
 .mh-lg {
     max-height: 900px;
+}
+
+.max-w-30 {
+    max-width: 450px;
+}
+
+.min-h-30 {
+    min-height: 450px;
 }
 
 .gap-3 {
@@ -87,8 +129,34 @@ body {
     position: sticky;
 }
 
+.fixed {
+    position: fixed;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .top-0 {
     top: 0;
+}
+
+.top-2 {
+    top: 20px;
+}
+
+.right-2 {
+    right: 20px;
+}
+
+.x-0 {
+    left: 0;
+    right: 0;
+}
+
+.y-0 {
+    top: 0;
+    bottom: 0;
 }
 
 .p-0 {
@@ -114,8 +182,16 @@ body {
     z-index: 1;
 }
 
+.z-2 {
+    z-index: 2;
+}
+
 .mt-1 {
     margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
 }
 
 .my-2 {
@@ -128,20 +204,30 @@ body {
     margin-bottom: 4rem;
 }
 
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 .d-none {
     display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header,
 main {
     min-width: 320px;
 }
+
+.transform-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 /* Font Utilities */
 
@@ -223,6 +309,14 @@ main {
     background-color: var(--color-accent);
 }
 
+.bg-accent-light {
+    background-color: var(--color-accent-light);
+}
+
+.bg-none {
+    background: none;
+}
+
 .text-neutral {
     color: var(--color-nuetral);
 }
@@ -249,6 +343,22 @@ main {
 
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.rounded-2 {
+    border-radius: 2%;
 }
 
 
@@ -303,6 +413,10 @@ main {
     color: var(--color-nuetral);
 }
 
+.btn-secondary:hover {
+    background-color: var(--color-secondary-light);
+}
+
 .btn--text {
     background: none;
     padding: 0.3em 0;
@@ -311,6 +425,18 @@ main {
 .btn--text::after {
     content: '\2192';
     margin: 0 5px;
+}
+
+.close-btn {
+    background: none;
+    padding: 0;
+    color: var(--color-nuetral);
+    border: none;
+    font-weight: 700;
+}
+
+.close-btn:hover {
+    cursor: pointer;
 }
 
 
@@ -411,6 +537,78 @@ main {
     transform: scale(1.05);
 }
 
+.open-modal #modal {
+    display: block;
+}
+
+
+/* Form Fields */
+
+.input-group {
+    margin: 8px;
+    padding: 12px;
+    position: relative;
+}
+
+.input-label {
+    display: block;
+    font-weight: 500;
+    font-size: var(--fs-md);
+}
+
+.input-field {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--color-accent);
+}
+
+.input-field--primary {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid var(--color-nuetral);
+}
+
+.input-field:focus,
+.input-field:active {
+    outline: 2px solid var(--color-secondary);
+}
+
+.input-field--primary:focus,
+.input-field--primary:active {
+    outline: 2px solid var(--color-primary);
+}
+
+.input-group.required .input-label::after {
+    content: '*';
+    color: var(--color-primary);
+}
+
+.input-group.invalid-field .error-text {
+    display: block;
+    position: absolute;
+    padding: 4px 0;
+    color: var(--color-red);
+    font-weight: 500;
+}
+
+.input-group.invalid-field .input-field {
+    border: 1px solid var(--color-red);
+}
+
+.input-group.invalid-field .input-field--primary {
+    border: 1px solid var(--color-red);
+}
+
+.input-group.invalid-field .input-field:focus,
+.input-group.invalid-field .input-field:active {
+    outline: 2px solid var(--color-red);
+}
+
+.input-group.invalid-field .input-field--primary:focus,
+.input-group.invalid-field .input-field--primary:active {
+    outline: 2px solid var(--color-red);
+}
+
 
 @media screen and (max-width:540px) {
     :root {
@@ -463,7 +661,7 @@ main {
         margin-right: 3rem;
     }
 
-    .carousel-item.active>.carousel_preview {
+    .carousel-item.active .carousel_preview {
         transition: all 0.5s ease-in-out;
         transform: scale(1.05);
     }

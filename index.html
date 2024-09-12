@@ -18,7 +18,7 @@
                 <img class="header__logo" src="./assets/logo.svg" alt="serviceforge-toolbox-logo" />
                 <span class="fs-lg fw-bold text-secondary">ServiceForge</span>
             </a>
-            <nav class="xl-flex d-none f-space-between fs-sm">
+            <nav aria-label="navigation" class="xl-flex d-none f-space-between fs-sm">
                 <a href="#" class="nav-item active">Home</a>
                 <a href="#" class="nav-item">Why</a>
                 <a href="#" class="nav-item">Features</a>
@@ -26,8 +26,8 @@
                 <a href="#" class="nav-item">Pricing</a>
             </nav>
             <div class="d-none xl-flex">
-                <a href="#" class="nav-item">Log in</a>
-                <button class="btn btn-primary">Sign Up</button>
+                <a href="#login" class="nav-item">Log in</a>
+                <button id="header__signup" class="btn btn-primary">Sign Up</button>
             </div>
             <button class="menu-icon xl-hide" id="menu-icon">
                 <span class="bar"></span>
@@ -35,20 +35,20 @@
                 <span class="bar"></span>
             </button>
         </div>
-        <nav class="container mobile-menu bg-neutral" id="mobile-menu">
+        <nav aria-label="mobile menu" class="container mobile-menu bg-neutral" id="mobile-menu">
             <a href="#" class="nav-item active">Home</a>
             <a href="#" class="nav-item">Why</a>
             <a href="#" class="nav-item">Features</a>
             <a href="#" class="nav-item">How it Works</a>
             <a href="#" class="nav-item">Pricing</a>
             <div class="mt-1">
-                <button class="btn btn-secondary">Log in</button>
-                <button class="btn btn-primary">Sign Up</button>
+                <button class="btn btn-secondary" id="mobile-menu__login">Log in</button>
+                <button class="btn btn-primary" id="mobile-menu__signup">Sign Up</button>
             </div>
         </nav>
     </header>
     <main>
-        <section>
+        <section class="bg-neutral">
             <div class="hero container d-flex f-space-between items-center bg-neutral md-flex-col lg-flex-col">
                 <div class="hero__content">
                     <h1 class="fs-xxl text-secondary">Apps for the many.</h1>
@@ -167,6 +167,82 @@
                 </div>
             </div>
         </section>
+
+        <aside aria-label="login popup" class="bg-accent-light z-2 x-0 y-0 w-full h-full fixed d-none" id="login-modal">
+            <div class="w-100 max-w-30 min-h-30 bg-neutral absolute transform-center container py-2">
+                <button class="close-btn absolute top-2 right-2" aria-label="close modal" id="close-login">
+                    <svg fill="#000" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M 16 14 C 15.488 14 14.976938 14.194937 14.585938 14.585938 C 13.804937 15.366937 13.804937 16.633063 14.585938 17.414062 L 29.171875 32 L 14.585938 46.585938 C 13.804938 47.366938 13.804937 48.633063 14.585938 49.414062 C 14.976937 49.805062 15.488 50 16 50 C 16.512 50 17.023062 49.805062 17.414062 49.414062 L 32 34.828125 L 46.585938 49.414062 C 47.366938 50.195063 48.633063 50.195062 49.414062 49.414062 C 50.195063 48.633062 50.195062 47.366937 49.414062 46.585938 L 34.828125 32 L 49.414062 17.414062 C 50.195063 16.633063 50.195062 15.366938 49.414062 14.585938 C 48.633062 13.804938 47.366937 13.804938 46.585938 14.585938 L 32 29.171875 L 17.414062 14.585938 C 17.023062 14.194938 16.512 14 16 14 z">
+                        </path>
+                    </svg>
+                </button>
+                <h2 class="text-secondary fs-lg text-center">Login</h2>
+                <form id="login-form">
+                    <div class="input-group required">
+                        <label for="login-email" class="input-label">Email</label>
+                        <input class="input-field" type="email" name="email" id="login-email" aria-required="true" />
+                        <span id="login-email-err" class="error-text d-none" aria-live="polite"></span>
+                    </div>
+                    <div class="input-group required">
+                        <label for="login-password" class="input-label">Password</label>
+                        <input class="input-field" type="password" name="password" id="login-password"
+                            autocomplete="off" aria-required="true" />
+                        <span id="login-password-err" class="error-text d-none" aria-live="polite"></span>
+                    </div>
+                    <p class="fs-sm text-center mt-2">New User? <a class="btn--text text-primary" href="#signup">Click
+                            here to Signup</a></p>
+                    <button type="submit" class="btn btn-secondary mx-auto d-block mt-1">Login</button>
+                </form>
+            </div>
+        </aside>
+
+        <aside aria-label="signup popup" class="bg-accent-light z-2 x-0 y-0 w-full h-full fixed d-none"
+            id="signup-modal">
+            <div class="text-neutral w-100 max-w-30 bg-secondary absolute transform-center container py-2">
+                <button class="close-btn absolute top-2 right-2" aria-label="close modal" id="close-signup">
+                    <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M 16 14 C 15.488 14 14.976938 14.194937 14.585938 14.585938 C 13.804937 15.366937 13.804937 16.633063 14.585938 17.414062 L 29.171875 32 L 14.585938 46.585938 C 13.804938 47.366938 13.804937 48.633063 14.585938 49.414062 C 14.976937 49.805062 15.488 50 16 50 C 16.512 50 17.023062 49.805062 17.414062 49.414062 L 32 34.828125 L 46.585938 49.414062 C 47.366938 50.195063 48.633063 50.195062 49.414062 49.414062 C 50.195063 48.633062 50.195062 47.366937 49.414062 46.585938 L 34.828125 32 L 49.414062 17.414062 C 50.195063 16.633063 50.195062 15.366938 49.414062 14.585938 C 48.633062 13.804938 47.366937 13.804938 46.585938 14.585938 L 32 29.171875 L 17.414062 14.585938 C 17.023062 14.194938 16.512 14 16 14 z">
+                        </path>
+                    </svg>
+                </button>
+                <h2 class="text-neutral fs-lg text-center">Signup</h2>
+                <form id="signup-form">
+                    <div class="input-group required">
+                        <label for="signup-email" class="input-label">Email</label>
+                        <input class="input-field--primary" type="email" name="email" id="signup-email" />
+                        <span id="signup-email-err" class="error-text d-none" aria-live="polite"></span>
+                    </div>
+                    <div class="input-group required">
+                        <label for="signup-password" class="input-label">Password</label>
+                        <input class="input-field--primary" type="password" name="password" id="signup-password"
+                            autocomplete="off" aria-describedby="pass-desc" />
+                        <span id="signup-password-err" class="error-text d-none" aria-live="polite"></span>
+                        <!-- <span id="pass-desc" class="fs-xs mt-1 d-block">Your password should contain
+                            <ul>
+                                <li>atleast 8 characters</li>
+                                <li>one upper case character</li>
+                                <li>one lower case character</li>
+                                <li>one number</li>
+                                <li>one special character</li>
+                            </ul>
+                        </span> -->
+                    </div>
+                    <div class="input-group required">
+                        <label for="cnf-password" class="input-label">Confirm Password</label>
+                        <input class="input-field--primary" type="password" name="confirm-password" id="cnf-password"
+                            autocomplete="off" />
+                        <span id="cnf-password-err" class="error-text d-none" aria-live="polite"></span>
+                    </div>
+                    <p class="fs-sm text-center mt-2">Existing User? <a class="btn--text text-primary"
+                            href="#login">Click here to Login</a></p>
+                    <button type="submit" class="btn btn-primary mx-auto d-block mt-1">Signup</button>
+                </form>
+            </div>
+        </aside>
     </main>
     <script src="./index.js"></script>
 </body>
